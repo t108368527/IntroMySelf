@@ -4,5 +4,6 @@
   margin: 0;
   padding:8px;
   width: 100%;
-  background-color: azure;
+  height: auto;
+  background-color: transparent;
 }
