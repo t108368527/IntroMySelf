@@ -1,8 +1,7 @@
 .body{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left:auto;
   padding: 6rem;
   min-height: 100vh;
 }

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '@/styles/Degree.module.css';
 import { Box, Stepper, Step, StepLabel, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
 import React from 'react';
 
 const steps = ['High School', 'College', 'Master'];
@@ -81,6 +82,40 @@ function Degree () {
                         );
                     })}
                 </Stepper>
+                {activeStep === steps.length ? (
+                <React.Fragment>
+                <Typography sx={{ mt: 2, mb: 1 }}>
+                    All steps completed 
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <Box sx={{ flex: '1 1 auto' }} />
+                    <Button onClick={handleReset}>Reset</Button>
+                </Box>
+                </React.Fragment>
+                ) : (
+                <React.Fragment>
+                <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <Button
+                    color="inherit"
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    sx={{ mr: 1 }}
+                    >
+                    Back
+                    </Button>
+                    <Box sx={{ flex: '1 1 auto' }} />
+                    {isStepOptional(activeStep) && (
+                    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                        Skip
+                    </Button>
+                    )}
+                    <Button onClick={handleNext}>
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                </Box>
+                </React.Fragment>
+                )}
             </Box>
         </>
     )

@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import styles from '@/styles/Header.module.css';
 import React from 'react';
 // MUI
 import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 // LOGO
 import logo from '../public/images/logo.png';
+// Styles
+import styles from '@/styles/Header.module.css';
 
 interface Props {
     /**
@@ -36,8 +37,8 @@ export default function Header(props: Props) {
           <List>
             {navItems.map((item) => (
               <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: 'center' }}>
-                  <ListItemText primary={item} />
+                <ListItemButton sx={{ textAlign: 'center'}}>
+                  <ListItemText primary={item} sx={{textDecoration:'none', fontSize: '1rem'}}/>
                 </ListItemButton>
               </ListItem>
             ))}
